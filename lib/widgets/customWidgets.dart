@@ -1,5 +1,6 @@
 import 'package:assistant/constants/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class MyTextField extends StatelessWidget {
   const MyTextField({
@@ -52,7 +53,7 @@ class CircularDesign extends StatelessWidget {
     this.y = 0,
     this.z = 0,
     this.opacity = 0.1,
-    this.color = MyColors.LightPurple,
+    this.color = MyColors.Navy,
   });
 
   @override
@@ -92,4 +93,38 @@ class BannerType extends CustomClipper<Path>{
     return true;
   }
 }
+
+class MyAppBar extends StatelessWidget {
+  const MyAppBar({
+    super.key,
+    required this.title,
+  });
+  final String title;
+  @override
+  Widget build(BuildContext context) {
+    return ClipPath(
+      clipper: BannerType(),
+      child: Container(
+        decoration: const BoxDecoration(
+          color: MyColors.Navy,
+        ),
+        height: 200,
+        width: double.infinity,
+        child: Center(
+          child: Text(
+            "${title}",
+            style: GoogleFonts.aBeeZee(
+              fontSize: 25,
+              fontWeight: FontWeight.bold,
+              color: MyColors.Background,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+
+
 

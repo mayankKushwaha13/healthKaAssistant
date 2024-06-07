@@ -38,7 +38,7 @@ class HomeContainers extends StatelessWidget {
     
       child: InkWell(
         onTap: () {
-          Get.to(page, transition: Transition.upToDown);
+          Get.to(page, transition: Transition.rightToLeft);
         },
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,

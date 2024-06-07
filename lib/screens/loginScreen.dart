@@ -18,7 +18,7 @@ class LoginScreen extends StatelessWidget {
     var height = MediaQuery.of(context).size.height;
     return SafeArea(
       child: Scaffold(
-        backgroundColor: MyColors.Peach,
+        backgroundColor: MyColors.Blue,
         body: Center(
           child: Stack(
             alignment: Alignment.center,
@@ -26,6 +26,8 @@ class LoginScreen extends StatelessWidget {
               CircularDesign(height: 400, width: 400, opacity: 0.45, x: -width/2, y: -height/2,),
               CircularDesign(height: 360, width: 360, opacity: 0.4, x: width/2, y: height/2,),
               CircularDesign(height: 200, width: 200, opacity: 0.25, y: height/2,),
+              
+              CircularDesign(height: 200, width: 200, opacity: 0.25, y: -height/2,),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -56,7 +58,7 @@ class LoginScreen extends StatelessWidget {
                     child: Ink(
                       width: double.infinity,
                       decoration: BoxDecoration(
-                        color: MyColors.DarkPurple,
+                        color: MyColors.RedDark,
                         borderRadius: BorderRadius.circular(12),
                       ),
                       child: InkWell(

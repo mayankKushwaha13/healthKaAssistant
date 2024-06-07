@@ -15,34 +15,15 @@ class patientProfileScreen extends StatelessWidget {
     var date = DateTime.now();
     return SafeArea(
       child: Scaffold(
-        backgroundColor: MyColors.Background,
+        backgroundColor: MyColors.Blue,
         body: Stack(
           alignment: Alignment.center,
           children: [
-            CircularDesign(height: 400, width: 400, color: MyColors.BrownPeach,opacity: 0.4, x: width/2,y: height/2,),
+            CircularDesign(height: 400, width: 400, color: MyColors.RedDark,opacity: 0.4, x: width/2,y: height/2,),
             Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                ClipPath(
-                  clipper: BannerType(),
-                  child: Container(
-                    decoration: const BoxDecoration(
-                      color: MyColors.Brown,
-                    ),
-                    height: 200,
-                    width: double.infinity,
-                    child: Center(
-                      child: Text(
-                        "Patient's Profile",
-                        style: GoogleFonts.aBeeZee(
-                          fontSize: 25,
-                          fontWeight: FontWeight.bold,
-                          color: MyColors.Background,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
+                MyAppBar(title: "Patient's Profile",),
 
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20.0),
@@ -82,9 +63,9 @@ class patientProfileScreen extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: Row(
                     children: [
-                      PatientDetails1(width: width, gender: "M", date: "${date.day}-${date.month}-${date.year}",),
+                      PatientDetails1(width: width, gender: "M", ),
                       SizedBox(width: 20,),
-                      PatientDetails2(width: width, phone: "9876543210", address: "Locality, City",),
+                      PatientDetails2(width: width, phone: "9876543210", address: "Locality, City", date: "${date.day}-${date.month}-${date.year}",),
                     ],
                   ),
                 ),
@@ -92,18 +73,18 @@ class patientProfileScreen extends StatelessWidget {
                 Container(
                   transform: Matrix4.translationValues(-width/2 + 20 + width/4 - 15, 30, 0),
                   decoration: BoxDecoration(
-                    color: MyColors.yellowish,
+                    color: MyColors.Pink,
                     boxShadow: [
                       BoxShadow(
                         blurRadius: 10,
                         spreadRadius: 1,
-                        color: Colors.grey.shade700,
-                        offset: Offset(4, 4),
+                        color: Colors.grey.shade800,
+                        offset: const Offset(4, 4),
                       ),
                       BoxShadow(
                         blurRadius: 10,
                         spreadRadius: 1,
-                        color: Colors.white,
+                        color: Colors.blue.shade100,
                         offset: Offset(-4, -4),
                       ),
                     ]
@@ -150,6 +131,4 @@ class patientProfileScreen extends StatelessWidget {
     );
   }
 }
-
-
 

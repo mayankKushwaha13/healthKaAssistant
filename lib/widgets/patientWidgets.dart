@@ -6,17 +6,15 @@ class PatientDetails1 extends StatelessWidget {
   PatientDetails1({
     super.key,
     required this.width,
-    this.color = MyColors.Peach,
+    this.color = MyColors.RedDark,
     this.age = 18,
     required this.gender,
-    required this.date,
   });
 
   final double width;
   final Color color;
   final int age;
   final String gender;
-  final String date;
 
   @override
   Widget build(BuildContext context) {
@@ -28,13 +26,13 @@ class PatientDetails1 extends StatelessWidget {
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.shade700,
+            color: Colors.grey.shade800,
             blurRadius: 10,
             spreadRadius: 1,
             offset: Offset(4, 4),
           ),
           BoxShadow(
-            color: Colors.grey.shade200,
+            color: Colors.blue.shade100,
             blurRadius: 10,
             spreadRadius: 1,
             offset: Offset(-4, -4),
@@ -55,16 +53,18 @@ class PatientDetails1 extends StatelessWidget {
                 style: GoogleFonts.aBeeZee(
                   fontSize: 22,
                   fontWeight: FontWeight.bold,
+                  color: MyColors.Background,
                 ),
                 ),
                 Text("${age}",
                 style: GoogleFonts.aBeeZee(
                   fontSize: 22,
+                  color: MyColors.yellowish,
                 ),
                 )
               ],
             ),
-            const SizedBox(height: 10,),
+            const SizedBox(height: 20,),
             Row(
               // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -72,28 +72,18 @@ class PatientDetails1 extends StatelessWidget {
                 style: GoogleFonts.aBeeZee(
                   fontSize: 22,
                   fontWeight: FontWeight.bold,
+                  color: MyColors.Background,
                 ),
                 ),
                 Text("${gender}",
                 style: GoogleFonts.aBeeZee(
                   fontSize: 22,
+                  color: MyColors.yellowish,
                 ),
                 )
               ],
             ),
-            const SizedBox(height: 10,),
-            Text("Last Visit :",
-            style: GoogleFonts.aBeeZee(
-              fontSize: 22,
-              fontWeight: FontWeight.bold,
-            ),
-            ),
-            Text(
-              "${date}",
-              style: GoogleFonts.aBeeZee(
-                fontSize: 22,
-              ),
-            )
+            
           ],
         ),
       ),
@@ -105,15 +95,17 @@ class PatientDetails2 extends StatelessWidget {
   PatientDetails2({
     super.key,
     required this.width,
-    this.color = MyColors.Brown,
+    this.color = MyColors.Navy,
     required this.phone,
     required this.address,
+    required this.date,
   });
 
   final double width;
   final Color color;
   final String phone;
   final String address;
+  final String date;
 
   @override
   Widget build(BuildContext context) {
@@ -131,7 +123,7 @@ class PatientDetails2 extends StatelessWidget {
             offset: Offset(4, 4),
           ),
           BoxShadow(
-            color: Colors.grey.shade200,
+            color: Colors.blue.shade100,
             blurRadius: 10,
             spreadRadius: 1,
             offset: Offset(-4, -4),
@@ -162,19 +154,35 @@ class PatientDetails2 extends StatelessWidget {
           
               SizedBox(height: 20,),
           
-              Text("Address : ",
+              // Text("Address : ",
+              // style: GoogleFonts.aBeeZee(
+              //   fontSize: 22,
+              //   fontWeight: FontWeight.bold,
+              //   color: MyColors.Background,
+              // ),
+              // ),
+              // Text("${address}",
+              // style: GoogleFonts.aBeeZee(
+              //   fontSize: 22,
+              //   color: MyColors.Peach
+              // ),
+              // ),
+
+            const SizedBox(height: 10,),
+            Text("Last Visit :",
+            style: GoogleFonts.aBeeZee(
+              fontSize: 22,
+              fontWeight: FontWeight.bold,
+              color: MyColors.Background,
+            ),
+            ),
+            Text(
+              "${date}",
               style: GoogleFonts.aBeeZee(
                 fontSize: 22,
-                fontWeight: FontWeight.bold,
-                color: MyColors.Background,
+                color: MyColors.yellowish,
               ),
-              ),
-              Text("${address}",
-              style: GoogleFonts.aBeeZee(
-                fontSize: 22,
-                color: MyColors.Peach
-              ),
-              ),
+            )
             ],
           ),
         ),
