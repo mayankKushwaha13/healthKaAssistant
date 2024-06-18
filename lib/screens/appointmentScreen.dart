@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:assistant/screens/patientProfileScreen.dart';
 import 'package:assistant/useEverywhere/colors.dart';
 import 'package:assistant/useEverywhere/list.dart';
