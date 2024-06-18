@@ -1,5 +1,6 @@
-import 'package:assistant/constants/colors.dart';
+import 'package:assistant/useEverywhere/colors.dart';
 import 'package:assistant/widgets/customWidgets.dart';
+import 'package:assistant/widgets/drawer_widget.dart';
 import 'package:assistant/widgets/patientWidgets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -15,6 +16,7 @@ class patientProfileScreen extends StatelessWidget {
     var date = DateTime.now();
     return SafeArea(
       child: Scaffold(
+        drawer: DrawerWidget(),
         backgroundColor: MyColors.Blue,
         body: Stack(
           alignment: Alignment.center,
@@ -23,7 +25,13 @@ class patientProfileScreen extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                MyAppBar(title: "Patient's Profile",),
+                Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    MyAppBar(title: "Patient's Profile",),
+                    DrawerIcon(width: width, color: MyColors.Background,)
+                  ],
+                ),
 
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20.0),

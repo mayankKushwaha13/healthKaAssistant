@@ -1,6 +1,10 @@
-import 'package:assistant/constants/colors.dart';
+import 'package:assistant/useEverywhere/colors.dart';
+import 'package:assistant/useEverywhere/list.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+
 
 class AssignTextField extends StatelessWidget {
   const AssignTextField({
@@ -27,12 +31,30 @@ class AssignTextField extends StatelessWidget {
             ),
           ),
           Flexible(
-            child: TextField(
+            child: TypeAheadField(
+              controller: controller,
+              itemBuilder: (context, dataitem) {
+                return ListTile(
+                  leading: Image(image: AssetImage(dataitem.icon), height: 40,),
+                  title: Text("${dataitem}"),
+                );
+              },
+              onSelected: (value) {
+                controller.text = value.toString();
+              },
+              suggestionsCallback: (search) {
+                return patientList.patients.where((element){
+                  return element.name.contains(search);
+                }).toList();
+              },
+              builder: (context, con, focusNode) {
+                return TextField(
               style: GoogleFonts.lato(
                 fontSize: 18,
                 color: MyColors.Background,
               ),
-              controller: controller,
+              controller: con,
+              focusNode: focusNode,
               decoration: const InputDecoration(
                 contentPadding: EdgeInsets.all(8),
                 isCollapsed: true,
@@ -45,6 +67,8 @@ class AssignTextField extends StatelessWidget {
                 fillColor: MyColors.Navy,
                 filled: true,
               ),
+            );
+              },
             ),
           )
         ],

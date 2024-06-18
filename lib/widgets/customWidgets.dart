@@ -1,4 +1,4 @@
-import 'package:assistant/constants/colors.dart';
+import 'package:assistant/useEverywhere/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -128,3 +128,28 @@ class MyAppBar extends StatelessWidget {
 
 
 
+class DrawerIcon extends StatelessWidget {
+  const DrawerIcon({
+    super.key,
+    required this.width,
+    this.color = Colors.black,
+  });
+
+  final double width;
+  final Color color;
+
+  @override
+  Widget build(BuildContext context) {
+    return Builder(builder: (context) {
+      return Container(
+        transform: Matrix4.translationValues(-width/2 + 30, -60, 0),
+        child: GestureDetector(
+          onTap: () {
+            Scaffold.of(context).openDrawer();
+          },
+          child: Icon(Icons.menu, size: 30, color: color,),
+        ),
+      );
+    });
+  }
+}

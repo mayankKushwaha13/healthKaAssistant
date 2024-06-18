@@ -26,4 +26,7 @@ class MyColors
 
   static const Color Cold = Color.fromARGB(255, 225, 247, 245);
   static const Color Teal = Color.fromARGB(255,154, 200, 205);
+
+  static const Color BackgroundHealthka = Color.fromARGB(255, 128, 146, 248);
+  static const Color Gold = Color.fromARGB(255, 255, 236, 158);
 }

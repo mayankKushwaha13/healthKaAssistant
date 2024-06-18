@@ -1,4 +1,4 @@
-import 'package:assistant/constants/colors.dart';
+import 'package:assistant/useEverywhere/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -21,8 +21,8 @@ class HomeContainers extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Ink(
-      height: 200,
-      width: 200,
+      height: 210,
+      width: 210,
       decoration: BoxDecoration(
         color: color,
         borderRadius: BorderRadius.circular(12),
@@ -43,10 +43,14 @@ class HomeContainers extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Image(image: AssetImage("lib/assets/${icon}"), height: 100,),
+            Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: Image(image: AssetImage("lib/assets/${icon}"), height: 100,),
+            ),
             Text("${title}",
+            textAlign: TextAlign.center,
             style: GoogleFonts.aBeeZee(
-              fontSize: 22,
+              fontSize: 20,
               color: textColor,
             )
             )

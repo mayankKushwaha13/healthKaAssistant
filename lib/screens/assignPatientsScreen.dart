@@ -1,6 +1,7 @@
-import 'package:assistant/constants/colors.dart';
+import 'package:assistant/useEverywhere/colors.dart';
 import 'package:assistant/widgets/assignPatientsWidget.dart';
 import 'package:assistant/widgets/customWidgets.dart';
+import 'package:assistant/widgets/drawer_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -30,17 +31,24 @@ class _AssignpatientsscreenState extends State<Assignpatientsscreen> {
   Widget build(BuildContext context) {
     String genderDropDown = "F";
     String appointmentDropDown = "New";
+    final width = MediaQuery.of(context).size.width;
     return SafeArea(
       child: Scaffold(
         backgroundColor: MyColors.Blue,
+        drawer: DrawerWidget(),
         body: SingleChildScrollView(
           child: Stack(
+            alignment: Alignment.center,
             children: [
               Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const MyAppBar(title: "Assign Patients"),
+                  Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      const MyAppBar(title: "Assign Patients"),
+                      DrawerIcon(width:width, color: MyColors.Background,)
+                    ],
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -174,9 +182,8 @@ class _AssignpatientsscreenState extends State<Assignpatientsscreen> {
                     Container(
                       padding: EdgeInsets.all(8),
                       decoration: BoxDecoration(
-                        color: MyColors.Pink,
-                        borderRadius: BorderRadius.circular(12)
-                      ),
+                          color: MyColors.Pink,
+                          borderRadius: BorderRadius.circular(12)),
                       child: Text(
                         "${selectedtime.hour}:${selectedtime.minute}",
                         style: GoogleFonts.aBeeZee(
@@ -196,10 +203,8 @@ class _AssignpatientsscreenState extends State<Assignpatientsscreen> {
                           final TimeOfDay? timeOfDay = await showTimePicker(
                               context: context,
                               initialTime: selectedtime,
-                              initialEntryMode: TimePickerEntryMode.dial
-                          );
-                          if (timeOfDay != null)
-                          {
+                              initialEntryMode: TimePickerEntryMode.dial);
+                          if (timeOfDay != null) {
                             setState(() {
                               selectedtime = timeOfDay;
                             });
@@ -216,7 +221,9 @@ class _AssignpatientsscreenState extends State<Assignpatientsscreen> {
                       ),
                     )
                   ]),
-                  const SizedBox(height: 20,),
+                  const SizedBox(
+                    height: 20,
+                  ),
                   Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                     Text(
                       "Appointment Date : ",
@@ -226,9 +233,8 @@ class _AssignpatientsscreenState extends State<Assignpatientsscreen> {
                     Container(
                       padding: EdgeInsets.all(8),
                       decoration: BoxDecoration(
-                        color: MyColors.Pink,
-                        borderRadius: BorderRadius.circular(12)
-                      ),
+                          color: MyColors.Pink,
+                          borderRadius: BorderRadius.circular(12)),
                       child: Text(
                         "${selecteddate.day}/${selecteddate.month}/${selecteddate.year}",
                         style: GoogleFonts.aBeeZee(
@@ -249,10 +255,8 @@ class _AssignpatientsscreenState extends State<Assignpatientsscreen> {
                               context: context,
                               initialDate: selecteddate,
                               firstDate: DateTime(2024),
-                              lastDate: DateTime(3000)
-                          );
-                          if (dateTime != null)
-                          {
+                              lastDate: DateTime(3000));
+                          if (dateTime != null) {
                             setState(() {
                               selecteddate = dateTime;
                             });
@@ -272,10 +276,10 @@ class _AssignpatientsscreenState extends State<Assignpatientsscreen> {
                   const SizedBox(
                     height: 20,
                   ),
-
                   AssignTextField(controller: docID, title: "Doctor ID"),
-
-                  const SizedBox(height: 30,),
+                  const SizedBox(
+                    height: 30,
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -286,23 +290,25 @@ class _AssignpatientsscreenState extends State<Assignpatientsscreen> {
                           borderRadius: BorderRadius.circular(12),
                         ),
                         child: InkWell(
-                          onTap: () {
-                          },
+                          onTap: () {},
                           child: Padding(
                             padding: const EdgeInsets.all(12.0),
                             child: Center(
-                              child: Text("Save",
-                              style: GoogleFonts.aBeeZee(
-                                fontSize: 22,
-                                fontWeight: FontWeight.bold,
-                                color: MyColors.Background,
-                              ),
+                              child: Text(
+                                "Save",
+                                style: GoogleFonts.aBeeZee(
+                                  fontSize: 22,
+                                  fontWeight: FontWeight.bold,
+                                  color: MyColors.Background,
+                                ),
                               ),
                             ),
                           ),
                         ),
                       ),
-                      const SizedBox(width: 20,),
+                      const SizedBox(
+                        width: 20,
+                      ),
                       Ink(
                         width: 100,
                         decoration: BoxDecoration(
@@ -310,25 +316,25 @@ class _AssignpatientsscreenState extends State<Assignpatientsscreen> {
                           borderRadius: BorderRadius.circular(12),
                         ),
                         child: InkWell(
-                          onTap: () {
-                          },
+                          onTap: () {},
                           child: Padding(
                             padding: const EdgeInsets.all(12.0),
                             child: Center(
-                              child: Text("Bill",
-                              style: GoogleFonts.aBeeZee(
-                                fontSize: 22,
-                                fontWeight: FontWeight.bold,
-                                color: MyColors.Background,
-                              ),
+                              child: Text(
+                                "Bill",
+                                style: GoogleFonts.aBeeZee(
+                                  fontSize: 22,
+                                  fontWeight: FontWeight.bold,
+                                  color: MyColors.Background,
+                                ),
                               ),
                             ),
                           ),
                         ),
                       ),
-
                     ],
-                  )
+                  ),
+                  SizedBox(height: 20,),
                 ],
               )
             ],
