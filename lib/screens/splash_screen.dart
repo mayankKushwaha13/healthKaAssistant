@@ -15,7 +15,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(Duration(milliseconds: 3500), () {
+    Timer(Duration(milliseconds: 3550), () {
       Navigator.of(context).pushReplacement(MaterialPageRoute(
           builder: (context) => LoginScreen())); // Replace HomeScreen with your main screen
     });
